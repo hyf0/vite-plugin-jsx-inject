@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-jsx-inject",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./src/index.js",
   "repository": "https://github.com/iheyunfei/vite-plugin-jsx-inject.git",
   "author": "YunfeiHe <i.heyunfei@gmail.com>",

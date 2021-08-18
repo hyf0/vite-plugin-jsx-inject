@@ -21,6 +21,7 @@ const jsxInjectPlugin = (injected) =>  {
   let resolveConfig
   return {
     name: 'vite-jsx-inject',
+    enforce: 'pre',
     configResolved(resolveConfig) {
       const esbuildOptions = resolveConfig.esbuild
       if (typeof esbuildOptions !== 'object') return
@@ -33,7 +34,7 @@ const jsxInjectPlugin = (injected) =>  {
       )
     },
     async transform(code, id) {
-      if (!resolveConfig.esbuild || !injected) return
+      if (!resolveConfig.esbuild || !injected || resolveConfig.command === 'build') return
       const jsxInject = injected
       if (filter(id) || filter(cleanUrl(id))) {
         if (jsxInject && /\.(?:j|t)sx\b/.test(id)) {
