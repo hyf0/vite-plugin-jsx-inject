@@ -12,7 +12,7 @@ export const cleanUrl = (url) =>
   url.replace(hashRE, '').replace(queryRE, '')
 
 /**
- * @type {(injected?: string) => import('vite').Plugin}
+ * @type {(injected: string) => import('vite').Plugin}
  */
 const jsxInjectPlugin = (injected) =>  {
   /** @type {ReturnType<import('@rollup/pluginutils').CreateFilter>} */
@@ -25,8 +25,7 @@ const jsxInjectPlugin = (injected) =>  {
       const esbuildOptions = resolveConfig.esbuild
       if (typeof esbuildOptions !== 'object') return
       if (typeof esbuildOptions.jsxInject === 'string') {
-        //TODO: warn about using vite.config.js#esbuild.jsxInject: '...' rather then jsxInject('...')
-        injected = esbuildOptions.jsxInject
+        throw new Error('Do not using vite.config.js#esbuild.jsxInject')
       }
       filter = createFilter(
         esbuildOptions.include || /\.(tsx?|jsx)$/,
