@@ -1,5 +1,5 @@
 
-A workaround for vite.config.js#esbuild.jsxInject option, which is going to deprecated in the future.
+A workaround for vite.config.js#esbuild.jsxInject option, which is going to be deprecated in the future.
 
 ```js
 // vite.config.js
